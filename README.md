@@ -14,13 +14,13 @@ Before you can make predictions, you'll need to gather a training data set. Visi
 ./train.sh <room-name>
 ```
 
-This will log each time a sample is recorded to `examples.db`. The script can be stopped with a `^C`. You should capture ~50 samples per location. Once you've done this, you're ready to make predictions:
+This will repeatedly scan for samples and append them to `examples.db`. You should capture ~50 samples per room, covering the space as you do it. Once you've captured enough, the script can be stopped with a `^C` and you're ready to make predictions:
 
 ```sh
 ./predict.sh
 ```
 
-This will continually scan and predict your location.
+Since `examples.db` stores one sample per line containing the room name, you can use tools like `grep` and `cat` to filter, exclude, and combine samples.
 
 ## License
 MIT
